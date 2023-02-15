@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+
+"""
+A code to connect to mogodb database and print
+staus of the ngix server
+"""
+
+
 from pymongo import MongoClient
 
 """ Connect to the MongoDB server"""
@@ -23,5 +30,6 @@ for method in methods:
     print(f"    method {method}: {count}")
 
 """ Get the number of documents with method=GET and path=/status"""
-status_check_count = collection.count_documents({"method": "GET", "path": "/status"})
+status_check_count = collection.count_documents(
+        {"method": "GET", "path": "/status"})
 print(f"{status_check_count} status check")
